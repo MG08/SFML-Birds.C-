@@ -13,10 +13,13 @@ int main() {////////////////////////////////////////////////////////////////////
 
 	//this next line is an array. Arrays are a lot like python lists.
 	int birbColor[] = { 255, 200, 200 }; //set up an array of colors to make your birb PINK!
-	int birbColor2[] = { 255, 100, 100 };
-	int birbColor3[] = { 255, 100, 300 };
-	int birbColor4[] = { 255, 50, 300 };
+	int birbColor2[] = { 120, 100, 100 };
+	int birbColor3[] = { 25, 100, 300 };
+	int birbColor4[] = { 20, 50, 100 };
 	birbColor4[1] = 90;
+	int flowercolor[] = { 255, 100, 50 };
+	//doesnt do anything^
+	
 
 	while (1) {//GAME LOOP OMG-------------------------------------
 		window.clear();
@@ -24,7 +27,10 @@ int main() {////////////////////////////////////////////////////////////////////
 		drawBirb(400, 200, birbColor2);
 		drawBirb(600, 200, birbColor3);
 		drawBirb(200, 400, birbColor4);//function call
-
+		flower(500, 600, flowercolor);
+		flower(300, 600, flowercolor);
+		flower(500, 400, flowercolor);
+		flower(300, 400, flowercolor);
 		
 		window.display();
 	}//end game loop-----------------------------------------------
@@ -72,30 +78,29 @@ void drawBirb(int xpos, int ypos, int color[3]) {
 
 void flower(int xpos, int ypos, int color[3]) {
 
-	sf::CircleShape;
-	sf::CircleShape; //SFML lets you set the number of sides of a circle, so this is how we make a triangle!
-	sf::RectangleShape;
+	sf::CircleShape circle; //tell the program we're using this shape
+	sf::RectangleShape rect;
 
 	//left branch
 	circle.setRadius(30);
 	circle.setFillColor((sf::Color(0, 100, 80)));
-	circle.setPosition(200, 180);
+	circle.setPosition(xpos, ypos);
 	window.draw(circle);
 
 	//right branch
 	circle.setRadius(30);
 	circle.setFillColor((sf::Color(80, 100, 0)));
-	circle.setPosition(250, 180);
+	circle.setPosition(xpos+50, ypos);
 	window.draw(circle);
 
 	//top branch
 	circle.setRadius(30);
 	circle.setFillColor((sf::Color(0, 100, 0)));
-	circle.setPosition(225, 150);
+	circle.setPosition(xpos + 25, ypos - 30);
 	window.draw(circle);
 
 	//trunk
-	rect.setPosition(245, 200);
+	rect.setPosition(xpos + 45, ypos + 20);
 	rect.setFillColor(sf::Color(100, 80, 0));
 	rect.setSize(sf::Vector2f(20, 100));
 	window.draw(rect);
